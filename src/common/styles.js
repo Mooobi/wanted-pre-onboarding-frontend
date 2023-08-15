@@ -51,6 +51,7 @@ button {
 	border-radius: 0.5rem;
 	color: #444444;
 	cursor: pointer;
+	font-size: 1rem;
 }
 input {
 	border-radius: 0.5rem;

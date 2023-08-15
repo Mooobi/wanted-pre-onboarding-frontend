@@ -25,7 +25,7 @@ async function makeRequest(method, url, data) {
       localStorage.setItem('access_token', res.data.access_token);
     }
 
-    return res.data;
+    return res;
   } catch (err) {
     console.log(err);
   }
