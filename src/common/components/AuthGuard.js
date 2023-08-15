@@ -7,11 +7,14 @@ export default function AuthGuard(props) {
   const path = window.location.pathname;
 
   useEffect(() => {
-    if ((path === '/signup' || path === '/signin') && access_token) {
+    if (
+      (path === '/' || path === '/signup' || path === '/signin') &&
+      access_token
+    ) {
       navigate('/todo');
     }
 
-    if (path === '/todo' && !access_token) {
+    if ((path === '/' || path === '/todo') && !access_token) {
       navigate('/signin');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
