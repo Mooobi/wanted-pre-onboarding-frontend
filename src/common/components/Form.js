@@ -101,4 +101,8 @@ const Wrapper = styled.section`
   > button:disabled {
     cursor: default;
   }
+
+  > a {
+    margin-top: 0.5rem;
+  }
 `;
