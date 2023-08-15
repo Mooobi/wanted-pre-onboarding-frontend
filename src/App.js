@@ -1,11 +1,21 @@
-import Router from "./Router";
+import { styled } from 'styled-components';
+import Router from './Router';
+import { GlobalStyle } from './common/styles';
 
-function App() {
+export default function App() {
   return (
     <>
-      <Router />
+      <GlobalStyle />
+      <Wrapper>
+        <Router />
+      </Wrapper>
     </>
   );
 }
 
-export default App;
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;

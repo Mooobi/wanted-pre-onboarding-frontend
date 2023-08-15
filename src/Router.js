@@ -6,9 +6,9 @@ import SignIn from './pages/signIn/view/SignIn';
 export default function Router() {
   return (
     <Routes>
-      <Route path="/todo" element={<Todo />} />
-      <Route path="/signup" element={<SignUp />} />
-      <Route path="/signin" element={<SignIn />} />
+      <Route path='/todo' element={<Todo />} />
+      <Route path='/signup' element={<SignUp />} />
+      <Route path='/signin' element={<SignIn />} />
     </Routes>
   );
 }
