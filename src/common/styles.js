@@ -20,6 +20,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	color: #444444;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -43,5 +44,17 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+button {
+	border: none;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	color: #444444;
+	cursor: pointer;
+}
+input {
+	border-radius: 0.5rem;
+	border: 1px solid #cccccc;
+	padding: 0.375rem;
 }
 `;
