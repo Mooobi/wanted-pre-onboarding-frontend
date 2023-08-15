@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
 import { postData } from '../apis/api/defaultApi';
+import { useNavigate } from 'react-router-dom';
 
 export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+
+  const path = window.location.pathname;
+
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -23,8 +28,22 @@ export default function Form() {
     setIsButtonEnabled(isValidEmail && isValidPassword);
   };
 
-  const handleSignup = () => {
-    postData('/auth/signup', { email: email, password: password });
+  const handleSubmit = async () => {
+    const res = await postData(
+      `/auth/${path === '/signup' ? 'signup' : 'signin'}`,
+      {
+        email: email,
+        password: password,
+      },
+    );
+
+    if (path === '/signup' && res.status === 201) {
+      navigate('/signin');
+    }
+
+    if (path === '/signin' && res.status === 200) {
+      navigate('/todo');
+    }
   };
 
   return (
@@ -45,12 +64,15 @@ export default function Form() {
         onChange={handlePasswordChange}
       />
       <button
-        data-testid='signup-button'
+        data-testid={path === '/signup' ? 'signup-button' : 'signin-button'}
         disabled={!isButtonEnabled}
-        onClick={handleSignup}
+        onClick={handleSubmit}
       >
-        회원가입
+        {path === '/signup' ? '회원가입' : '로그인'}
       </button>
+      <a href={path === '/signup' ? '/signin' : '/signup'}>
+        {path === '/signup' ? '로그인 하기' : '회원가입 하기'}
+      </a>
     </Wrapper>
   );
 }

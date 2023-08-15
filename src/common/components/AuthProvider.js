@@ -7,7 +7,7 @@ export default function AuthProvider(props) {
   const path = window.location.pathname;
 
   useEffect(() => {
-    if ((path === '/signup' || path === 'signin') && access_token) {
+    if ((path === '/signup' || path === '/signin') && access_token) {
       navigate('/todo');
     }
 
