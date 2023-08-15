@@ -1,14 +1,17 @@
 import { styled } from 'styled-components';
 import Router from './Router';
 import { GlobalStyle } from './common/styles';
+import AuthGuard from './common/components/AuthGuard';
 
 export default function App() {
   return (
     <>
-      <GlobalStyle />
-      <Wrapper>
-        <Router />
-      </Wrapper>
+      <AuthGuard>
+        <GlobalStyle />
+        <Wrapper>
+          <Router />
+        </Wrapper>
+      </AuthGuard>
     </>
   );
 }

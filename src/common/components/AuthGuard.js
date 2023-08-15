@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function AuthProvider(props) {
+export default function AuthGuard(props) {
   const navigate = useNavigate();
   const access_token = localStorage.getItem('access_token');
   const path = window.location.pathname;

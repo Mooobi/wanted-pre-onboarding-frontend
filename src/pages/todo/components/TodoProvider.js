@@ -5,7 +5,7 @@ export default function TodoProvider(props) {
   useEffect(() => {
     const fetchData = async () => {
       const res = await getData('/todos');
-      props.setTodos(res.data);
+      props.setTodos(res?.data);
     };
 
     fetchData();
