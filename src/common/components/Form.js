@@ -44,6 +44,10 @@ export default function Form() {
     if (path === '/signin' && res.status === 200) {
       navigate('/todo');
     }
+
+    if (path === '/signin' && res.status === 404) {
+      alert('해당 사용자가 존재하지 않습니다.');
+    }
   };
 
   return (

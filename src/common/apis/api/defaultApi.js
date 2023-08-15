@@ -11,8 +11,8 @@ async function makeRequest(method, url, data) {
       case 'POST':
         res = await instance.post(url, data);
         break;
-      case 'PATCH':
-        res = await instance.patch(url, data);
+      case 'PUT':
+        res = await instance.put(url, data);
         break;
       case 'DELETE':
         res = await instance.delete(url);
@@ -39,8 +39,8 @@ export async function postData(url, data) {
   return makeRequest('POST', url, data);
 }
 
-export async function patchData(url, data) {
-  return makeRequest('PATCH', url, data);
+export async function putData(url, data) {
+  return makeRequest('PUT', url, data);
 }
 
 export async function deleteData(url) {
