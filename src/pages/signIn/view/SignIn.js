@@ -1,13 +1,10 @@
 import { styled } from 'styled-components';
 import Form from '../../../common/components/Form';
-import AuthProvider from '../../../common/components/AuthProvider';
 
 export default function SignIn() {
   return (
     <Box>
-      <AuthProvider>
-        <Form />
-      </AuthProvider>
+      <Form />
     </Box>
   );
 }
