@@ -52,7 +52,7 @@ export default function TodoList({ todos, setTodos }) {
               <ContentSection>
                 <input
                   type='checkbox'
-                  checked={todo.isCompleted}
+                  defaultChecked={todo.isCompleted}
                   onChange={() =>
                     handleUpdateTodo(todo.id, todo.todo, !todo.isCompleted)
                   }
