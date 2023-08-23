@@ -29,13 +29,10 @@ export default function Form() {
   };
 
   const handleSubmit = async () => {
-    const res = await postData(
-      `/auth/${path === '/signup' ? 'signup' : 'signin'}`,
-      {
-        email: email,
-        password: password,
-      },
-    );
+    const res = await postData(`/auth/${path === '/signup' ? 'signup' : 'signin'}`, {
+      email: email,
+      password: password,
+    });
 
     if (path === '/signup' && res.status === 201) {
       navigate('/signin');
@@ -53,12 +50,7 @@ export default function Form() {
   return (
     <Wrapper>
       <label htmlFor='email'>Email</label>
-      <input
-        data-testid='email-input'
-        id='email'
-        value={email}
-        onChange={handleEmailChange}
-      />
+      <input data-testid='email-input' id='email' value={email} onChange={handleEmailChange} />
       <label htmlFor='password'>Password</label>
       <input
         data-testid='password-input'

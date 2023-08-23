@@ -15,9 +15,7 @@ export default function TodoList({ todos, setTodos }) {
 
       const res = await putData(`/todos/${id}`, updatedTodo);
 
-      const updatedTodos = todos.map((todo) =>
-        todo.id === id ? res.data : todo,
-      );
+      const updatedTodos = todos.map((todo) => (todo.id === id ? res.data : todo));
 
       setTodos(updatedTodos);
       setIsEditing(null);
@@ -53,9 +51,7 @@ export default function TodoList({ todos, setTodos }) {
                 <input
                   type='checkbox'
                   defaultChecked={todo.isCompleted}
-                  onChange={() =>
-                    handleUpdateTodo(todo.id, todo.todo, !todo.isCompleted)
-                  }
+                  onChange={() => handleUpdateTodo(todo.id, todo.todo, !todo.isCompleted)}
                 />
                 <span>{todo.todo}</span>
               </ContentSection>
@@ -66,10 +62,7 @@ export default function TodoList({ todos, setTodos }) {
                 >
                   수정
                 </button>
-                <button
-                  data-testid='delete-button'
-                  onClick={() => handleDeleteTodo(todo.id)}
-                >
+                <button data-testid='delete-button' onClick={() => handleDeleteTodo(todo.id)}>
                   삭제
                 </button>
               </EditSection>
@@ -80,32 +73,23 @@ export default function TodoList({ todos, setTodos }) {
                 <input
                   type='checkbox'
                   checked={todo.isCompleted}
-                  onChange={() =>
-                    handleUpdateTodo(todo.id, todo.todo, !todo.isCompleted)
-                  }
+                  onChange={() => handleUpdateTodo(todo.id, todo.todo, !todo.isCompleted)}
                 />
                 <input
                   data-testid='modify-input'
                   value={editedTodo}
                   onChange={(e) => setEditedTodo(e.target.value)}
-                  onKeyUp={(e) =>
-                    handleKeyUp(e, todo.id, editedTodo, todo.isCompleted)
-                  }
+                  onKeyUp={(e) => handleKeyUp(e, todo.id, editedTodo, todo.isCompleted)}
                 />
               </ContentSection>
               <EditSection>
                 <button
                   data-testid='submit-button'
-                  onClick={() =>
-                    handleUpdateTodo(todo.id, editedTodo, todo.isCompleted)
-                  }
+                  onClick={() => handleUpdateTodo(todo.id, editedTodo, todo.isCompleted)}
                 >
                   제출
                 </button>
-                <button
-                  data-testid='cancel-button'
-                  onClick={() => setIsEditing(null)}
-                >
+                <button data-testid='cancel-button' onClick={() => setIsEditing(null)}>
                   취소
                 </button>
               </EditSection>
