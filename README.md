@@ -87,6 +87,8 @@ Todo 삭제 기능
   - 제출 버튼 클릭 시 수정모드 해제 및 내용 업데이트
   - 취소 버튼 클릭 시 수정 내용 초기화 및 수정모드 해제
 
+## 구현 화면
+![img](https://github.com/Mooobi/wanted-pre-onboarding-frontend/assets/124570875/554a1219-53b7-47f3-b6b5-6bc00373c606)
 
 ## 개발 과정
 
